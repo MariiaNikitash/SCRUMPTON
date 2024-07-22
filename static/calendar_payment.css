@@ -1,0 +1,133 @@
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    color: #e6bb8b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 200px;
+}
+
+.calendar {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.904);
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.calendar form {
+    flex: 1.1;
+}
+
+.calendar .radio {
+    margin-left: 5px;
+}
+
+.calendar input[type="date"] {
+    width: calc(80% - 12px);
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    border: 1px solid #e6bb8b;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.calendar input[type="number"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    border: 1px solid #e6bb8b;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.calendar .radio input[type="radio"] + label {
+    font-size: 0.95em;
+    color: #e6bb8b;
+}
+
+.calendar .image-container {
+    margin-left: 0px;
+    text-align: center;
+    flex: 1.7;
+}
+
+.calendar img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.payment-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.payment-form h2 {
+    font-size: 1.25em;
+    margin-bottom: 15px;
+    color: #e6bb8b;
+}
+
+.payment-form label {
+    display: block;
+    font-size: 0.85em;
+    margin-bottom: 8px;
+    color: #e6bb8b;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 14px;
+    margin-bottom: 18px;
+    font-size: 0.85em;
+    border: 1px solid #e6bb8b;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+button {
+    background-color: #e6bb8b;
+    color: #333;
+    border: none;
+    padding: 11px 22px;
+    font-size: 0.85em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payment-form button:hover {
+    background-color: #d4a572;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}

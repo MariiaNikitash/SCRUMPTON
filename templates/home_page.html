@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrumpton Hotel - Welcome</title>
+    <link rel="stylesheet" href="static/styles.css">
+    
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1></h1>
+            <nav>
+                <ul>
+                    
+                    
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Activities </a></li>
+                    <li><a href="#services">Restaurants </a></li>
+                    {% if not login_hidden %}
+                    <li><a href="#signup-tab" id="signup-tab-link" class="btn-signup">Sign Up</a></li>
+                    <li><a href="#signin-tab" id="signin-tab-link" class="btn-signup"> Sign In</a></li>
+                    {% endif %}
+                    
+                    
+                  
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Discover Luxury at Scrumpton Hotel</h2>
+            <p>Experience the joys of scrum with amazing rooms and exceptional service.</p>
+            <a href="#signup-tab" class="btn-signup" id="signup-link">Join Us Now</a>
+        </div>
+    </section>
+
+    <section id="signup" class="signup">
+        <div class="signup-container">
+            <button id="close-signup" class="close-btn">&times;</button>
+            <h2>Sign Up for Room Reservation</h2>
+            <form action="/signup" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="signin" class="signin">
+        <div class="signin-container">
+            <button id="close-signin" class="close-btn">&times;</button>
+            <h2>Sign In</h2>
+            <form action="/signin" method="POST">
+                <label for="signin-email">Email:</label>
+                <input type="email" id="signin-email" name="email" required>
+
+                <label for="signin-password">Password:</label>
+                <input type="password" id="signin-password" name="password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Scrumpton Hotel. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon facebook">Facebook</a>
+                <a href="https://twitter.com" target="_blank" class="social-icon twitter">Twitter</a>
+                <a href="https://instagram.com" target="_blank" class="social-icon instagram">Instagram</a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/scripts.js"></script>
+</body>
+
+</html>
