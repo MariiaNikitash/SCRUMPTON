@@ -2,12 +2,11 @@ class Guests:
         #Dictionary details -> email: [name,password,has reservation?]
     guests = {'jacob@gmail.com':['Jacob Caranci','password123',True],
               'Pyside6Luver@coolmail.com': ['Billy Bob', 'MarryPyside6',False],
+                }
+    
+    def add_user(self,name,email,password):
+        pass
 
-                
-              
-              
-              
-              }
 
     #make function to recieve all 3/4 parameters and add them to the 'guests' dictionary
     
