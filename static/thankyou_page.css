@@ -1,0 +1,63 @@
+.thank-you-message {
+
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+    letter-spacing: 2px;
+    color: #e6bb8b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.enjoy {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 5px 0;
+    margin-top: 10px;
+
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.image img {
+    border: 2px solid #ffffff; 
+    border-radius: 2px; 
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reservations_page_bt {
+    font-family: 'Times New Roman', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    display: inline-block;
+    background-color: #e6bb8b;
+    color: #333;
+    font-size: 0.9em;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+
+}
+
+
+.reservations_page_bt:hover {
+    background-color: #d4a572;
+}

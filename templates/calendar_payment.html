@@ -17,11 +17,12 @@
                 <ul>
                     
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Activities </a></li>
-                    <li><a href="#services">Restaurants </a></li>
+
+                   <li> <a href="{{ url_for('activity') }}">Activities</a></li>
+                   <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
                     {% if not login_hidden %}
                     <li><a href="#signup-tab" id="signup-tab-link" class="btn-signup">Sign Up</a></li>
-                    <li><a href="#signin-tab" id="signin-tab-link" class="btn-signup">Sign In</a></li>
+                    <li><a href="#signin-tab" id="signin-tab-link" class="btn-signup"> Sign In</a></li>
                     {% endif %}
 
                 </ul>
@@ -72,6 +73,23 @@
 
 
 {% if not pay_hidden %}
+<div class="payment-wrapper">
+
+
+<div class="payment-form">
+    <h2>Reservation details <br> Confirmation </h2>
+    {{email}} <br><br>
+    Check in: {{check_in}} <br><br>
+   Check out:  {{check_out}} <br><br>
+    {{size}} Room<br><br>
+    {{guests}} Guests<br><br>
+
+   Total price: $320000
+
+</div>
+
+
+
 <div class="payment-form" id="payment-form">
     <h2>Payment Details</h2>
     <form action="process_payment.php" method="post">
@@ -82,8 +100,8 @@
         <label for="cvv">CVV:</label>
         <input type="text" id="cvv" name="cvv" maxlength="3" required>
         <button type="submit">Submit Payment</button>
-    </form>
-    <button onclick="closePaymentForm()">Close</button>
+    </form> <br>
+</div>
 </div>
 {% endif %}
 

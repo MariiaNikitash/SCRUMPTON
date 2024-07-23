@@ -17,21 +17,29 @@
             <nav>
                 <ul>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Activities </a></li>
-                    <li><a href="#services">Restaurants </a></li>
-                </ul>
+
+                    <li> <a href="{{ url_for('activity') }}">Activities</a></li>
+                    <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
+                     
             </nav>
         </div>
+        <form action="/">
+            <button id="home_page" class="home_page_bt"> HOME PAGE</button>
+        </form>
+        <h1>Reservations</h1>
     </header>
-    ALL THE RESERVATION INFORMATION FOR LOGGED IN USER WILL SHOW HERE:
-
-    <br><br>
+    
+    <div class="table">
+    {% for row in reservations %}
+            <div class="reservations">
+                {% for item in row %}
+                   {{ item }}<br> <br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
     
     
-    
-    <form action="/">
-        <button id="home_page" class="home_page_bt"> HOME PAGE</button>
-    </form>
 
     <form action="/calendar_payment">
         <button id="calendar_payment" class="calendar"> MAKE ANOTHER RESERVATION</button>
@@ -45,13 +53,7 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    <footer>
+     <footer>
         <div class="container">
             <p>&copy; 2024 Scrumpton Hotel. All rights reserved.</p>
             <div class="social-media">

@@ -1,5 +1,5 @@
 // JavaScript to toggle the signup and signin sections visibility
-
+try{
 document.getElementById('signup-tab-link').addEventListener('click', function(e) {
     e.preventDefault();
     toggleVisibility('signup');
@@ -9,6 +9,9 @@ document.getElementById('signin-tab-link').addEventListener('click', function(e)
     e.preventDefault();
     toggleVisibility('signin');
 });
+} catch (e){
+
+}
 
 document.getElementById('close-signup').addEventListener('click', function() {
     document.getElementById('signup').style.display = 'none';

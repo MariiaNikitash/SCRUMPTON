@@ -19,8 +19,9 @@
                     
                     
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Activities </a></li>
-                    <li><a href="#services">Restaurants </a></li>
+
+                   <li> <a href="{{ url_for('activity') }}">Activities</a></li>
+                   <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
                     {% if not login_hidden %}
                     <li><a href="#signup-tab" id="signup-tab-link" class="btn-signup">Sign Up</a></li>
                     <li><a href="#signin-tab" id="signin-tab-link" class="btn-signup"> Sign In</a></li>
@@ -37,7 +38,7 @@
         <div class="hero-content">
             <h2>Discover Luxury at Scrumpton Hotel</h2>
             <p>Experience the joys of scrum with amazing rooms and exceptional service.</p>
-            <a href="#signup-tab" class="btn-signup" id="signup-link">Join Us Now</a>
+            <a href="#signup-tab" class="btn-signup" id="signup-link">Join now to book a room</a>
         </div>
     </section>
 
@@ -75,7 +76,31 @@
             </form>
         </div>
     </section>
+    
+    
+    
+    {% if signup_message %}
+    <div class="signup_message" id="signup_message">
+        {{ signup_message }}
+    </div>
+    <script>
+        // Wait for the page to load
+        document.addEventListener('DOMContentLoaded', function() {
+            var signupMessage = document.getElementById('signup_message');
+            signupMessage.style.opacity = '1'; // Show the message
 
+            // Automatically hide the message after 1 second
+            setTimeout(function() {
+                signupMessage.style.opacity = '0';
+            }, 3000); // Adjust timing as needed (1000ms = 1 second)
+        });
+    </script>
+    {% endif %}
+    
+    
+    
+    
+    
     <footer>
         <div class="container">
             <p>&copy; 2024 Scrumpton Hotel. All rights reserved.</p>
@@ -88,6 +113,7 @@
         </div>
     </footer>
 
+    
     <script src="static/scripts.js"></script>
 </body>
 

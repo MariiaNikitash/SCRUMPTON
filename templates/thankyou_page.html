@@ -8,14 +8,8 @@
     <link rel="stylesheet" href="static/styles.css">
     <link rel="stylesheet" href="static/thankyou_page.css">
 
+
 </head>
-
-
-
-
-
-
-
 <body>
     <header>
         <div class="container">
@@ -23,11 +17,12 @@
             <nav>
                 <ul>
 
-
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Activities </a></li>
-                    <li><a href="#services">Restaurants </a></li>
+
+                    <li> <a href="{{ url_for('activity') }}">Activities</a></li>
+                    <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
                   
+
 
 
 
@@ -35,21 +30,30 @@
             </nav>
         </div>
     </header>
-    THANK YOU VERY MUCH. WE HOPE YOU ENJOY YOUR TIME HERE AT SCRUMPTON HOTEL
-    <form action="/">
-    <button id="home_page" class="home_page_bt"> HOME PAGE</button>
-</form>
-<form action="/reservations">
-    <button id="reservations_page_id" class="reservations_page_bt"> YOUR RESERVATIONS</button>
-</form>
+
+    <div class="thank-you-message">
+        Thank you!
+    </div>
+    <div class="enjoy">
+        We hope you enjoy your time here at Scrumpton Hotel!
+    </div>
+
+    <div class="image">
+        <img src="static/images/thank.png" alt="Thank You Image" width="250" height="250">
+    </div>
+<div class="form-container">
+    <form action="/reservations">
+        <button id="reservations_page_id" class="reservations_page_bt">Your Reservations</button>
+    </form>
+</div>
     <footer>
         <div class="container">
             <p>&copy; 2024 Scrumpton Hotel. All rights reserved.</p>
             <div class="social-media">
-                <a href="https://facebook.com" target="_blank" class="social-icon facebook">Facebook</a>
-                <a href="https://twitter.com" target="_blank" class="social-icon twitter">Twitter</a>
-                <a href="https://instagram.com" target="_blank" class="social-icon instagram">Instagram</a>
-                <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">LinkedIn</a>
+                <a href="https://facebook.com/" target="_blank" class="social-icon facebook">Facebook</a>
+                <a href="https://twitter.com/" target="_blank" class="social-icon twitter">Twitter</a>
+                <a href="https://instagram.com/" target="_blank" class="social-icon instagram">Instagram</a>
+                <a href="https://linkedin.com/" target="_blank" class="social-icon linkedin">LinkedIn</a>
             </div>
         </div>
     </footer>
