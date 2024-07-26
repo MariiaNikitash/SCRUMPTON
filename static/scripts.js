@@ -4,6 +4,10 @@ document.getElementById('signup-tab-link').addEventListener('click', function(e)
     e.preventDefault();
     toggleVisibility('signup');
 });
+document.getElementById('join_now').addEventListener('click', function(e) {
+    e.preventDefault();
+    toggleVisibility('signup');
+});
 
 document.getElementById('signin-tab-link').addEventListener('click', function(e) {
     e.preventDefault();

@@ -12,18 +12,15 @@
 <body>
     <header>
         <div class="container">
-
+            <a href="{{ url_for('logo_home') }}">
+                <img class="logo" src="static/images/ScrumptonLogo.png">
+            </a>
             <nav>
                 <ul>
-                    
-                    <li><a href="#about">About Us</a></li>
 
-                   <li> <a href="{{ url_for('activity') }}">Activities</a></li>
-                   <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
-                    {% if not login_hidden %}
-                    <li><a href="#signup-tab" id="signup-tab-link" class="btn-signup">Sign Up</a></li>
-                    <li><a href="#signin-tab" id="signin-tab-link" class="btn-signup"> Sign In</a></li>
-                    {% endif %}
+                    <li><a href="#about">About Us</a></li>
+                    <li> <a href="{{ url_for('activity') }}">Activities</a></li>
+                    <li> <a href="{{ url_for('activity') }}">Restaurants</a></li>
 
                 </ul>
             </nav>
@@ -32,20 +29,20 @@
     </header>
     <div class="calendar">
         <form class="c_form" action="/process_dates" method="post">
-            <label for="check-in-date">Check-in Date:</label>
+            <label for="check-in-date">Check-in Date:</label> <br>
             <input type="date" id="check-in-date" name="check_in" min="2024-07-25" max="2026-05-01" required>
             <br>
-            <label for="check-out-date">Check-out Date:</label>
+            <label for="check-out-date">Check-out Date:</label><br>
             <input type="date" id="check-out-date" name="check_out" min="2024-07-25" max="2026-05-01" required>
             <br>
             <div class="radio"> Select Room Size
                 <br> <br>
                 <input type="radio" id="small_rm" name="radio" value="small" required>
-                <label for="small">SMALL: 1 Queen,1 bathroom</label><br><br>
+                <label for="small">SMALL: 1 Queen,1 bathroom,  $300/Night</label><br><br>
                 <input type="radio" id="medium_rm" name="radio" value="medium">
-                <label for="medium">MEDIUM: 2 Queens, 1 bathroom </label><br><br>
+                <label for="medium">MEDIUM: 1 King, 1 bathroom,  $500/Night </label><br><br>
                 <input type="radio" id="large_rm" name="radio" value="large">
-                <label for="large">LARGE: 1 King, 2 Queens, 2 bathrooms</label>
+                <label for="large">LARGE: 2 Queens, 2 bathrooms,  $700/Night</label>
 
             </div>
             <br>
@@ -53,17 +50,33 @@
             <input type="number" id="quantity" name="quantity" min="1" max="5" required>
             <br>
             <button type="submit">Submit</button>
+            {% if message %}
+            <div class="signup_message" id="signup_message">
+                {{ message }}
+            </div>
+            <script>
+                // Wait for the page to load
+                document.addEventListener('DOMContentLoaded', function () {
+                    var signupMessage = document.getElementById('signup_message');
+                    signupMessage.style.opacity = '1'; // Show the message
 
+                    // Automatically hide the message after 1 second
+                    setTimeout(function () {
+                        signupMessage.style.opacity = '0';
+                    }, 5000); // Adjust timing as needed (1000ms = 1 second)
+                });
+            </script>
+            {% endif %}
         </form>
         <div class="image-container" id="image-small">
-            <img src="https://acehotel.com/sydney/wp-content/uploads/sites/13/2021/09/ACE_Sydney_Small_120522_13703-1.jpg"
+            <img src="static/images/SmallRoom.png"
                 alt="Small Room Image">
         </div>
         <div class="image-container" id="image-medium">
-            <img src="https://miro.medium.com/v2/resize:fit:1400/1*X1K4Zi_mTg94imnWW-zfUw.jpeg" alt="Medium Room Image">
+            <img src="static/images/MediumRoom.png" alt="Medium Room Image">
         </div>
         <div class="image-container" id="image-large">
-            <img src="https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2020/08/THE-EMPATHY-SUITE-PALMS-CASINO-RESORT-LAS-VEGAS.jpg?ssl=1"
+            <img src="static/images/LargeRoom.png"
                 alt="Large Room Image">
         </div>
     </div>
@@ -76,32 +89,29 @@
 <div class="payment-wrapper">
 
 
-<div class="payment-form">
-    <h2>Reservation details <br> Confirmation </h2>
-    {{email}} <br><br>
-    Check in: {{check_in}} <br><br>
-   Check out:  {{check_out}} <br><br>
-    {{size}} Room<br><br>
-    {{guests}} Guests<br><br>
-
-   Total price: $320000
-
-</div>
-
-
-
-<div class="payment-form" id="payment-form">
-    <h2>Payment Details</h2>
-    <form action="process_payment.php" method="post">
-        <label for="card-number">Card Number:</label>
-        <input type="text" id="card-number" name="card-number" required>
-        <label for="expiry-date">Expiry Date:</label>
-        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
-        <label for="cvv">CVV:</label>
-        <input type="text" id="cvv" name="cvv" maxlength="3" required>
-        <button type="submit">Submit Payment</button>
-    </form> <br>
-</div>
+    <div class="payment-form">
+        <h2>Reservation details <br> Confirmation </h2>
+        {{email}} <br><br>
+        Check in: {{check_in}} <br><br>
+        Check out: {{check_out}} <br><br>
+        {{size}} Room<br><br>
+        {{guests}} Guests<br><br>
+        Total cost: ${{total}} <br>
+        Price per night: ${{per_night}}
+    </div>
+    <div class="payment-form" id="payment-form">
+        <h2>Payment Details</h2>
+        <form action="process_payment.php" method="post">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" maxlength="16" pattern="[0-9]{16}"
+                title="Please enter exactly 16 digits" required>
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3" required>
+            <button type="submit">Submit Payment</button>
+        </form> <br>
+    </div>
 </div>
 {% endif %}
 

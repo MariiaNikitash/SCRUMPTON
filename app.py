@@ -1,38 +1,38 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import os
 
-from classes import * 
+from Guests_Class import * 
+from Rooms_Class import *
 
 app = Flask(__name__)
 
 guests = Guests()
-rooms =Rooms()
+rooms = Rooms()
 login_hidden = [False] #variable to keep track of when signin/signup option are visable
 pay_hidden = [True] #variable to keep track of if payment form shows in calendar/payment page
-current_user = [''] #variable to keep track of current user signed in, blank if no one is logged in
+logout_hidden = [True]
 
 
 
 # Goes to home page when called
 @app.route('/')
 def home():
-    return render_template('home_page.html',login_hidden = login_hidden[0])
+    return render_template('home_page.html',login_hidden = login_hidden[0],logout = logout_hidden[0])
 
 
 
 # Goes to calendar_payment page when called
 @app.route('/calendar_payment')
 def calendar_payment():
-    return render_template('calendar_payment.html',login_hidden = login_hidden[0],pay_hidden = pay_hidden[0])
+    return render_template('calendar_payment.html',pay_hidden = pay_hidden[0])
 
 
 
 # Goes to reservations page when called
 @app.route('/reservations')
 def reservations():
-    reservations = rooms.get_reservations(current_user[0])
+    reservations = rooms.get_reservations(guests.current_user,False)
 
-    return render_template('reservations.html',login_hidden = login_hidden[0],reservations = reservations)
+    return render_template('reservations.html',reservations = reservations)
 
 
 
@@ -55,8 +55,8 @@ def signup():
     password = request.form['password']
     
     if guests.add_user(name,email,password) == 1:
-        return render_template('home_page.html',signup_message = 'Email with account already exists')
-    return render_template('home_page.html',signup_message = 'Scrumpton Account Created')
+        return render_template('home_page.html',signup_message = 'Email with account already exists',logout = logout_hidden[0])
+    return render_template('home_page.html',signup_message = 'Scrumpton Account Created',logout = logout_hidden[0])
     
 
 
@@ -70,12 +70,17 @@ def signin():
     if guests.sign_in(email,password) == 1:
          #If login fails it will say login failed and to try again
          return render_template('home_page.html',signup_message = 'Email password combination does not exist')
-        
+    
+    logout_hidden[0] = False
     login_hidden[0] = True
-    current_user[0] = email
+    if guests.sign_in(email,password) == 'manager':
+        reservations = rooms.get_reservations(guests.current_user,True)
+        return render_template('manager.html',reservations = reservations)
+    
+   
     
     #if not reservation then it takes you to calendar page
-    if guests.has_reservation(current_user[0]) == 1:
+    if guests.has_reservation(guests.current_user) == 1:
         return redirect(url_for('calendar_payment')) 
     
     #if guest has a reservation then it takes you to reservations page
@@ -83,9 +88,17 @@ def signin():
     
   
 
-  
+@app.route('/logout')
+def logout():
+    logout_hidden[0] = True
+    login_hidden[0] = False
+    guests.current_user = ''
 
+    return redirect(url_for('home'))
 
+@app.route('/logo_home')
+def logo_home():
+    return redirect(url_for('home'))
 #########################
 ### calendar/payment
 #########################
@@ -94,21 +107,25 @@ def signin():
 #Stays on calendar/payment page
 @app.route('/process_dates', methods=['POST'])
 def retrieve_calander_info():
+    if guests.current_user == '':
+        return redirect(url_for('home'))
     check_in = request.form['check_in']   #check_in FORMAT IS YYYY-MM-DD
     check_out = request.form['check_out'] #check_out FORMAT IS YYYY-MM-DD
     room_size = request.form['radio']   #small,medium, or large
     number_guests = request.form['quantity']  #integer 1-5
-    
-    #########################################################################################
-    ###### TODO HAVE TO FIGURE HOW MUCH MONEY IT WILL COST: Determine cost the room is per day
-    # ,how many people are staying in room, how many days they are staying
-    # IS ROOM FULL ON THOSE DATES?
-    #if the start date is after the end date then it should reset
-    
-    
-    
+   
+    if rooms.add_pending_reservation(size=room_size,start_date=check_in,end_date=check_out,guests=number_guests,email=guests.current_user) == 1:
+        return render_template('calendar_payment.html',login_hidden = login_hidden[0],pay_hidden = pay_hidden[0],message = 'Room Size Unavaiable')
+
+    if rooms.room_cost_calculator(check_in,check_out,room_size,int(number_guests)) == 1:
+         return render_template('calendar_payment.html',login_hidden = login_hidden[0],pay_hidden = pay_hidden[0],message = 'Reservation cant exceed 30 days,Check-in must be before check-out')
+      
+    total,per_night = rooms.room_cost_calculator(check_in,check_out,room_size,int(number_guests))
+  
     pay_hidden[0] = False
-    return render_template('calendar_payment.html',login_hidden = login_hidden[0],pay_hidden = pay_hidden[0],check_in = check_in, check_out = check_out, size = room_size, guests=number_guests,email=current_user[0])
+    return render_template('calendar_payment.html',pay_hidden = pay_hidden[0],check_in = check_in, 
+                           check_out = check_out, size = room_size, guests=number_guests,
+                           email=guests.current_user,total=total,per_night=per_night)
   
 
 
@@ -118,10 +135,12 @@ def retrieve_calander_info():
 @app.route('/process_payment.php', methods=['POST'])
 def process_payment():
 
-    #TODO: if payement is correct then takes user to thank you page
+    # if payement is correct then takes user to thank you page
     #if payment is incorrect then lets user retry
     #If payment is correct store payment info? store days the room is reserved in calander format,
-   
+    if guests.current_user == '':
+        return redirect(url_for('home'))
+    rooms.add_reservation()
     pay_hidden[0] = True
     return redirect(url_for('thankyou_page'))
 
