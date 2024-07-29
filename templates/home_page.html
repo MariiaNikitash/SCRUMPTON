@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scrumpton Hotel - Welcome</title>
     <link rel="stylesheet" href="static/styles.css">
-
-
 </head>
 
 <body>
@@ -18,8 +16,6 @@
         </a>
             <nav>
                 <ul>
-
-
                     <li><a href="#about">About Us</a></li>
 
                     <li> <a href="{{ url_for('activity') }}">Activities</a></li>
@@ -31,9 +27,6 @@
                     {% if not logout %}
                     <li><a href="{{ url_for('logout') }}" id="signin-tab-link" class="btn-signup"> Log Out</a></li>
                     {% endif %}
-
-
-
                 </ul>
             </nav>
         </div>
@@ -83,8 +76,6 @@
         </div>
     </section>
 
-
-
     {% if signup_message %}
     <div class="signup_message" id="signup_message">
         {{ signup_message }}
@@ -98,14 +89,10 @@
             // Automatically hide the message after 1 second
             setTimeout(function () {
                 signupMessage.style.opacity = '0';
-            }, 3000); // Adjust timing as needed (1000ms = 1 second)
+            }, 5000); 
         });
     </script>
     {% endif %}
-
-
-
-
 
     <footer>
         <div class="container">
@@ -118,8 +105,6 @@
             </div>
         </div>
     </footer>
-
-
     <script src="static/scripts.js"></script>
 </body>
 

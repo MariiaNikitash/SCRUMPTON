@@ -1,0 +1,176 @@
+.logo{
+    margin-top: -10px;
+}
+
+
+.unveil {
+
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+    letter-spacing: 2px;
+    color: #e6bb8b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.explore {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 5px 0;
+    margin-top: 10px;
+
+}
+
+.restaurant-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(230, 187, 139, 0.8);
+    padding: 30px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 2px;
+}
+
+.restaurant-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.restaurant-image {
+    width: 40%;
+    border-radius: 2px;
+    margin-right: 20px;
+}
+
+.restaurant-info {
+    width: 60%;
+}
+
+.restaurant-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.restaurant-info p {
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+
+
+
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+    
+}
+
+.gallery-image {
+    width: 23%; 
+    border-radius: 2px;
+}
+
+
+
+
+.pool-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(230, 187, 139, 0.8);
+    padding: 30px;
+    margin: 20px auto;
+    margin-top: 80px;
+    width: 80%;
+    border-radius: 2px;
+}
+
+.pool-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.pool-image {
+    width: 40%;
+    border-radius: 2px;
+    margin-right: 20px;
+}
+
+.pool-image2 {
+    width: 40%;
+    border-radius: 2px;
+    margin-right: 20px;
+}
+
+.pool-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.pool-info p {
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.pool-info {
+    width: 60%;
+}
+
+
+
+.circus-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(230, 187, 139, 0.8);
+    padding: 30px;
+    margin: 20px auto;
+    margin-top: 80px;
+    width: 80%;
+    border-radius: 2px;
+}
+
+.circus-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.circus-image {
+    width: 40%;
+    border-radius: 2px;
+    margin-right: 20px;
+}
+
+.circus-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+.circus-info p {
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.circus-info {
+    width: 60%;
+}
+

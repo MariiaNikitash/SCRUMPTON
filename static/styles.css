@@ -42,6 +42,7 @@ header {
     padding: 15px 0;
     position: relative;
     z-index: 100;
+    min-height: 70px; 
 }
 
 header .container {
@@ -123,15 +124,15 @@ a:hover {
 .signup_message {
     padding: 10px;
     font-size: 18px;
-    margin: 0 auto; /* Center the message box horizontally */
-    max-width: 400px; /* Set maximum width for the message box */
+    margin: 0 auto; 
+    max-width: 400px; 
     color: #fff;
-    background-color: #ff6347; /* Tomato */
-    border: 2px solid #e6bb8b; /* Indian Red */
+    background-color: #ff6347;
+    border: 2px solid #e6bb8b; 
     border-radius: 5px;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .signup,

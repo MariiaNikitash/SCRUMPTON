@@ -13,12 +13,20 @@
     </form>
     <h1 style="font-size: 30px;">Manager Portal </h1>
     <h1 style="font-size: 15px;"> All Guest Reservations</h1>
+   
+    <form action="/delete_reservation" method="post">
+        <br>
+            <label for="delete_reservation">Enter Room ID to <br> delete reservation</label><br>
+            <input type="text"  name="delete_reservation" >
+            <br>
+        <button id="reservations_page_id" class="reservations_page_bt">Submit </button> 
+    </form>
     
+    <br>
     <div class="table">
         <table border="1">
             <thead>
                 <tr>
-                    <!-- Example headers, replace with actual headers if needed -->
                     <th>Room Number</th>
                     <th>Room Size</th>
                     <th>Number of Guests</th>
@@ -26,7 +34,7 @@
                     <th>Check-out Date</th>
                     <th>Guest Email</th>
                     <th>Total Payment</th>
-                    
+                    <th>Room ID</th>
                 </tr>
             </thead>
             <tbody>
