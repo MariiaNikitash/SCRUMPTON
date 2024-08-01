@@ -1,6 +1,6 @@
 # SCRUMPTON Hotel Reservation System
 
-SCRUMPTON Hotel is a final team project for CPSC 362, Software Engineering Foundations class @CSUF, Summer 24.<br> 
+SCRUMPTON Hotel is a final group project for CPSC 362, Software Engineering Foundations class @CSUF, Summer 24.<br> 
 
 
 
