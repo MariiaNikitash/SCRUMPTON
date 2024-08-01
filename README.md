@@ -1,7 +1,7 @@
 # SCRUMPTON Hotel Reservation System
 
 A final group project for CPSC 362, Software Engineering Foundations class @CSUF, Summer 24.<br> 
-The SCRUMPTON Hotel Reservation System is a web-based platform designed to streamline the reservation process for guests and provide management tools for hotel staff. It allows users to view and book rooms, while giving managers the ability to oversee and modify reservations.
+<br>The SCRUMPTON Hotel Reservation System is a web-based platform designed to streamline the reservation process for guests and provide management tools for hotel staff. It allows users to view and book rooms, while giving managers the ability to oversee and modify reservations.
 
 
 
