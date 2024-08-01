@@ -1,1 +1,1 @@
-# SCRUMPTON Hotel, Hotel Management System 
+# SCRUMPTON Hotel, Reservation System
