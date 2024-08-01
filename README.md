@@ -21,13 +21,13 @@ We used Python for the back end of our Reservation System web pages. We have a c
 
 ## Conclusions and Future Work 
 
- ##### Lessons Learned
+ #### Lessons Learned
 * Not to overestimate how many functions can be included in a time-box. We had to cut out more functions from our program than anticipated.
 * The importance of communicating with team members in order to complete tasks efficiently and accurately. 
 * How to connect front and back ends of programs. Using different programming languages in one project was a great learning experience.
 * New programming languages. Some of our members had the opportunity to learn one or more programming languages while we put together this project.
 
-##### Software Requirement Specification (SRS) Deviations
+#### Software Requirement Specification (SRS) Deviations
 
 * Guests cannot edit or cancel their reservation through our software
 * Managers are still able to delete a guest’s reservation on request
@@ -36,7 +36,7 @@ We used Python for the back end of our Reservation System web pages. We have a c
 * Guests do not receive a thank you email on completion of their reservation
 * Managers cannot add on fees to guest statements
 
-##### Future Work
+#### Future Work
 
 * Expand our Reservation System to multiple Hotels. Currently only set up for a singular location.
 * Switching Room and Guest data to an online dataset
@@ -46,4 +46,4 @@ We used Python for the back end of our Reservation System web pages. We have a c
 
 
 
-P.S. The name of the hotel was inspired by the term 'Scrum', an agile project management framework that helps teams structure and manage their work through a set of values, principles, and practices. 
+<b>P.S.</b> The name of the hotel was inspired by the term 'Scrum', an agile project management framework that helps teams structure and manage their work through a set of values, principles, and practices. 
