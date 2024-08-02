@@ -15,7 +15,7 @@ We used Python for the back end of our Reservation System web pages. We have a c
 
 
 <b> Demo: </b>
-![Demo Video](readme-resources/demo.mp4)
+![Demo Video](readme_resources/demo.mp4)
 
 
 
