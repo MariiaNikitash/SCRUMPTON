@@ -14,7 +14,7 @@ Reservation System consists of multiple web pages. Different web pages allows Sc
 We used Python for the back end of our Reservation System web pages. We have a class that stores and edits our Hotel Room data, a class that stores and edits Guest data and a class that helps calculate the cost of a guest’s reservation.
 
 
-Demo:
+<b> Demo: </b>
 
 
 
